@@ -9,34 +9,60 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 
 const columns = [
-    { id: 'name', label: 'Name', minWidth: 170 },
-    { id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
+    { id: 'id', label: 'id', minWidth: 70 },
+    { id: 'date', label: 'Date', minWidth: 70 },
     {
-        id: 'population',
-        label: 'Population',
-        minWidth: 170,
-        align: 'right',
+        id: 'service',
+        label: 'Service',
+        minWidth: 70,
         format: (value) => value.toLocaleString('en-US'),
     },
     {
-        id: 'size',
-        label: 'Size\u00a0(km\u00b2)',
-        minWidth: 170,
-        align: 'right',
+        id: 'FlNoIn',
+        label: 'Flight Nº In',
+        minWidth: 70,
         format: (value) => value.toLocaleString('en-US'),
     },
     {
-        id: 'density',
-        label: 'Density',
-        minWidth: 170,
-        align: 'right',
+        id: 'FlNoOut',
+        label: 'Flight Nº Out',
+        minWidth: 70,
+        format: (value) => value.toFixed(2),
+    },
+    {
+        id: 'reg',
+        label: 'REG',
+        minWidth: 70,
+        format: (value) => value.toFixed(2),
+    },
+    {
+        id: 'gpunumber',
+        label: 'GPU Number',
+        minWidth: 70,
+        format: (value) => value.toFixed(2),
+    },
+    {
+        id: 'hoursnight',
+        label: 'Hours Night',
+        minWidth: 70,
+        format: (value) => value.toFixed(2),
+    },
+    {
+        id: 'hoursmorning',
+        label: 'Hours morning',
+        minWidth: 70,
+        format: (value) => value.toFixed(2),
+    },
+    {
+        id: 'comments',
+        label: 'Comments',
+        minWidth: 70,
         format: (value) => value.toFixed(2),
     },
 ];
 
-function createData(name, code, population, size) {
-    const density = population / size;
-    return { name, code, population, size, density };
+function createData(id, date, service, FlNoIn, FlNoOut, reg, gpunumber, hoursnight, hoursmorning) {
+    return { id, date, service, FlNoIn, FlNoOut, reg, gpunumber, hoursnight, hoursmorning };
 }
 
 const rows = [
@@ -79,7 +105,6 @@ export default function DataTable() {
                             {columns.map((column) => (
                                 <TableCell
                                     key={column.id}
-                                    align={column.align}
                                     style={{ minWidth: column.minWidth }}
                                 >
                                     {column.label}
