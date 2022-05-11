@@ -35,10 +35,9 @@ export default function Header() {
                     >
                         SERVICIOS
                     </Typography>
-                    <AddCircleIcon sx={{}}>
-                    MENU
+                    <Typography sx={{}}>
                     <MenuDrawer/>
-                    </AddCircleIcon>
+                    </Typography>
                     </Stack>
                     <Stack  
                     direction="row"

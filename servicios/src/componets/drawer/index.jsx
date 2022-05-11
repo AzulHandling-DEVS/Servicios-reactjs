@@ -6,6 +6,8 @@ import { useState, Fragment } from 'react';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+
 
 
 export default function MenuDrawer() {
@@ -88,7 +90,7 @@ export default function MenuDrawer() {
 
     return (
         <div>
-            {["MENU"].map((anchor) => (
+            {[<AddCircleIcon/>].map((anchor) => (
                 <Fragment key={anchor}>
                     <Typography
                         onClick={toggleDrawer(anchor, true)}
