@@ -158,7 +158,8 @@ export default function MenuDrawer() {
 
     return (
         <div>
-            {[<AddCircleIcon />].map((anchor) => (
+            {[<AddCircleIcon sx={{ marginTop: '5px' }}
+            />].map((anchor) => (
                 <Fragment key={anchor}>
                     <Typography
                         onClick={toggleDrawer(anchor, true)}

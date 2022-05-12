@@ -5,3 +5,17 @@ background-color: white;
 border: none;
 border-radius: 5px;
 }
+
+.search_flight input{
+height: 20px;
+width: 17vw;
+background-color: white;
+border: none;
+border-radius: 5px;
+}
+
+.div_inputs{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
