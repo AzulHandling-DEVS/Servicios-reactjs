@@ -1,10 +1,8 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
 import './style.css';
 import { Stack } from '@mui/material';
 import MenuDrawer from '../drawer';
@@ -48,14 +46,21 @@ export default function Header() {
                         id="date"
                         type="date"
                         defaultValue="2017-05-24"
-                        sx={{ width: '17vw', borderRadius: '50px', height: '5vh', paddingTop: '1vh' }}
+                        sx={{ width: '17vw', 
+                        borderRadius: '50px', 
+                        height: '5vh', 
+                        paddingTop: '1vh' }}
                     />
                     <TextField
                         className='date_picker'
                         id="date"
                         type="date"
                         defaultValue="2017-05-24"
-                        sx={{ width: '17vw', borderRadius: '50px', height: '5vh', paddingTop: '1vh', marginLeft: '1vw' }}
+                        sx={{ width: '17vw', 
+                        borderRadius: '50px', 
+                        height: '5vh', 
+                        paddingTop: '1vh', 
+                        marginLeft: '1vw' }}
                     />
                     </Stack>
                 </Stack>

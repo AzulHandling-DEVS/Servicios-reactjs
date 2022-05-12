@@ -7,10 +7,23 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { InputLabel, Select, MenuItem, FormControl } from '@mui/material';
 
 
 
 export default function MenuDrawer() {
+
+    const [service, setService] = useState('');
+    const [gpuService, setGpuService] = useState('');
+
+    const handleChange = (event) => {
+        setService(event.target.value);
+    };
+
+    const handleChangeGpu = (event) => {
+        setGpuService(event.target.value);
+    };
+
     const [state, setState] = useState({
         top: false,
         left: false,
@@ -34,8 +47,28 @@ export default function MenuDrawer() {
             }}
             role="presentation"
             color="main"
+            component="form"
+            noValidate
+            autoComplete="off"
+
         >
             <List sx={{ mt: 5 }}>
+                <ListItem>
+                    <FormControl sx={{ width: '100%' }}>
+                        <InputLabel id="demo-simple-select-label">Servicio</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={service}
+                            label="Service"
+                            onChange={handleChange}
+
+                        >
+                            <MenuItem value={"Towing"}>Towing</MenuItem>
+                            <MenuItem value={"GPU"}>GPU</MenuItem>
+                        </Select>
+                    </FormControl>
+                </ListItem>
                 <ListItem >
                     <TextField
                         id="standard-basic"
@@ -54,35 +87,70 @@ export default function MenuDrawer() {
                         label="REG"
                         variant="outlined" />
                 </ListItem>
-                <ListItem >
-                    <TextField
-                        id="standard-basic"
-                        label="Hours night"
-                        variant="outlined" />
-                </ListItem>
-                <ListItem >
-                    <TextField
-                        id="standard-basic"
-                        label="Hours morning"
-                        variant="outlined" />
-                </ListItem>
-                <ListItem >
-                    <TextField
-                        id="standard-basic"
-                        label="Commets"
-                        variant="outlined"
-                        multiline
-                        minRows={5}
-                        sx={{ width: '220px' }}
-                    />
-                    <ListItem>
-                        <Button variant="contained"
-                            sx={{
-                                width: '220px',
-                                height: '50px'
-                            }}
-                        >SEND DATA</Button>
-                    </ListItem>
+                {service === 'GPU' ?
+                    <div>
+                        <ListItem>
+                            <FormControl sx={{ width: '100%' }}>
+                                <InputLabel id="demo-simple-select-label">GPU type</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={gpuService}
+                                    label="Service"
+                                    onChange={handleChangeGpu}
+
+                                >
+                                    <MenuItem value={"GPU-046"}>GPU-046</MenuItem>
+                                    <MenuItem value={"GPU-047"}>GPU-047</MenuItem>
+                                    <MenuItem value={"GPU-047"}>GPU-048</MenuItem>
+                                    <MenuItem value={"GPU-047"}>GPU-049</MenuItem>
+                                    <MenuItem value={"GPU-047"}>GPU-050</MenuItem>
+                                    <MenuItem value={"GPU-047"}>GPU-076</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </ListItem>
+                        <ListItem >
+                            <TextField
+                                type='number'
+                                id="standard-basic"
+                                label="Hours night"
+                                variant="outlined" />
+                        </ListItem>
+                        <ListItem >
+                            <TextField
+                                type='number'
+                                id="standard-basic"
+                                label="Hours morning"
+                                variant="outlined" />
+                        </ListItem>
+                        <ListItem >
+                            <TextField
+                                id="standard-basic"
+                                label="Commets"
+                                variant="outlined"
+                                multiline
+                                minRows={5}
+                                sx={{ width: '220px' }}
+                            />
+                        </ListItem>
+                    </div> :
+                    <ListItem >
+                        <TextField
+                            id="standard-basic"
+                            label="Commets"
+                            variant="outlined"
+                            multiline
+                            minRows={5}
+                            sx={{ width: '220px' }}
+                        />
+                    </ListItem>}
+                <ListItem>
+                    <Button variant="contained"
+                        sx={{
+                            width: '220px',
+                            height: '50px'
+                        }}
+                    >SEND DATA</Button>
                 </ListItem>
             </List>
         </Box>
@@ -90,7 +158,7 @@ export default function MenuDrawer() {
 
     return (
         <div>
-            {[<AddCircleIcon/>].map((anchor) => (
+            {[<AddCircleIcon />].map((anchor) => (
                 <Fragment key={anchor}>
                     <Typography
                         onClick={toggleDrawer(anchor, true)}
