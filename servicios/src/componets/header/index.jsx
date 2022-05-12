@@ -92,7 +92,7 @@ export default function Header() {
                         className='button_send'
                         variant="contained"
                         sx={{
-                        color:'secondary',
+                        backgroundColor:'#06358F',
                         borderRadius:'5px',
                         marginLeft: '15px',
                         }}>

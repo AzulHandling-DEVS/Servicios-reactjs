@@ -66,29 +66,29 @@ function createData(id, date, service, FlNoIn, FlNoOut, reg, gpunumber, hoursnig
 }
 
 const rows = [
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
-    createData('d1234', '23/07/22', 'Buses', 9034, 9045, 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8 , 0.2, 'First Wave'),
 ];
 
 export default function DataTable() {
@@ -100,7 +100,7 @@ export default function DataTable() {
     };
 
     const handleChangeRowsPerPage = (event) => {
-        setRowsPerPage(+event.target.value);
+        setRowsPerPage(event.target.value);
         setPage(0);
     };
 
