@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import { InputLabel, Select, MenuItem, FormControl } from '@mui/material';
+import { InputLabel, Select, MenuItem, FormControl, } from '@mui/material';
 
 
 
@@ -15,6 +15,8 @@ export default function MenuDrawer() {
 
     const [service, setService] = useState('');
     const [gpuService, setGpuService] = useState('');
+    const [hoursNight, setHoursNight] = useState('');
+    const [hoursDay, setHoursday] = useState('');
 
     const handleChange = (event) => {
         setService(event.target.value);
@@ -23,6 +25,14 @@ export default function MenuDrawer() {
     const handleChangeGpu = (event) => {
         setGpuService(event.target.value);
     };
+
+    function HoursDifference() {
+        if ( hoursDay < hoursNight) {
+            alert("La hora de noche no puede ser mayor que la hora de día");
+        } else {
+            alert("La hora de noche es menor que la hora de día");
+        }
+    }
 
     const [state, setState] = useState({
         top: false,
@@ -37,7 +47,6 @@ export default function MenuDrawer() {
         setState({ ...state, [anchor]: open });
     };
 
-
     const list = (anchor) => (
         <Box
             sx={{
@@ -50,109 +59,132 @@ export default function MenuDrawer() {
             component="form"
             noValidate
             autoComplete="off"
-
         >
-            <List sx={{ mt: 5 }}>
-                <ListItem>
-                    <FormControl sx={{ width: '100%' }}>
-                        <InputLabel id="demo-simple-select-label">Servicio</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={service}
-                            label="Service"
-                            onChange={handleChange}
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    console.log("form submitted");
+                }}
+            >
+                <List sx={{ mt: 5 }}>
+                    <ListItem>
+                        <FormControl sx={{ width: '100%' }}>
+                            <InputLabel id="demo-simple-select-label">Servicio</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="SelectService"
+                                value={service}
+                                label="Service"
+                                onChange={handleChange}
+                            >
+                                <MenuItem value={"Towing"}>Towing</MenuItem>
+                                <MenuItem value={"GPU"}>GPU</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </ListItem>
 
-                        >
-                            <MenuItem value={"Towing"}>Towing</MenuItem>
-                            <MenuItem value={"GPU"}>GPU</MenuItem>
-                        </Select>
-                    </FormControl>
-                </ListItem>
-                <ListItem >
-                    <TextField
-                        id="standard-basic"
-                        label="Flight number in"
-                        variant="outlined" />
-                </ListItem>
-                <ListItem >
-                    <TextField
-                        id="standard-basic"
-                        label="Flight number out"
-                        variant="outlined" />
-                </ListItem>
-                <ListItem >
-                    <TextField
-                        id="standard-basic"
-                        label="REG"
-                        variant="outlined" />
-                </ListItem>
-                {service === 'GPU' ?
-                    <div>
-                        <ListItem>
-                            <FormControl sx={{ width: '100%' }}>
-                                <InputLabel id="demo-simple-select-label">GPU type</InputLabel>
-                                <Select
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
-                                    value={gpuService}
-                                    label="Service"
-                                    onChange={handleChangeGpu}
+                    <ListItem >
+                        <TextField
+                            id="FlNoIn"
+                            label="Flight number in"
+                            variant="outlined" />
+                    </ListItem>
 
-                                >
-                                    <MenuItem value={"GPU-046"}>GPU-046</MenuItem>
-                                    <MenuItem value={"GPU-047"}>GPU-047</MenuItem>
-                                    <MenuItem value={"GPU-047"}>GPU-048</MenuItem>
-                                    <MenuItem value={"GPU-047"}>GPU-049</MenuItem>
-                                    <MenuItem value={"GPU-047"}>GPU-050</MenuItem>
-                                    <MenuItem value={"GPU-047"}>GPU-076</MenuItem>
-                                </Select>
-                            </FormControl>
-                        </ListItem>
-                        <ListItem >
+                    <ListItem >
+                        <TextField
+                            id="FlNoOut"
+                            label="Flight number out"
+                            variant="outlined" />
+                    </ListItem>
+
+                    <ListItem >
+                        <TextField
+                            id="REGNumber"
+                            label="REG"
+                            variant="outlined" />
+                    </ListItem>
+
+                    {service === 'GPU' 
+                    ? <div>
+                            <ListItem>
+                                <FormControl sx={{ width: '100%' }}>
+                                    <InputLabel id="demo-simple-select-label">GPU type</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-label"
+                                        id="GPUSelect"
+                                        value={gpuService}
+                                        label="Service"
+                                        onChange={handleChangeGpu}
+                                    >
+                                        <MenuItem value={"GPU-046"}>GPU-046</MenuItem>
+                                        <MenuItem value={"GPU-047"}>GPU-047</MenuItem>
+                                        <MenuItem value={"GPU-047"}>GPU-048</MenuItem>
+                                        <MenuItem value={"GPU-047"}>GPU-049</MenuItem>
+                                        <MenuItem value={"GPU-047"}>GPU-050</MenuItem>
+                                        <MenuItem value={"GPU-047"}>GPU-076</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </ListItem>
+                            <ListItem >
+                                <TextField
+                                    type='number'
+                                    id="HoursNight"
+                                    InputProps={{ inputProps: { min: 0, max: 8 } }}
+                                    sx={{ width: '100%' }}
+                                    label="Hours night"
+                                    onChange={(e) => {
+                                        setHoursNight(e.target.value);
+                                    }}
+                                    variant="outlined"
+                                />
+                            </ListItem>
+                            <ListItem >
+                                <TextField
+                                    type='number'
+                                    id="HoursDay"
+                                    label="Hours morning"
+                                    InputProps={{ inputProps: { min: 0, max: 8 } }}
+                                    sx={{ width: '100%' }}
+                                    onChange={(e) => {
+                                        setHoursday(e.target.value);
+                                    }}
+                                    variant="outlined" />
+                            </ListItem>
+
+                            <ListItem >
+                                <TextField
+                                    id="CommetsBox"
+                                    label="Commets"
+                                    variant="outlined"
+                                    multiline
+                                    minRows={5}
+                                    sx={{ width: '220px' }}
+                                />
+                            </ListItem>
+                        </div> 
+                        : <ListItem >
                             <TextField
-                                type='number'
-                                id="standard-basic"
-                                label="Hours night"
-                                variant="outlined" />
-                        </ListItem>
-                        <ListItem >
-                            <TextField
-                                type='number'
-                                id="standard-basic"
-                                label="Hours morning"
-                                variant="outlined" />
-                        </ListItem>
-                        <ListItem >
-                            <TextField
-                                id="standard-basic"
+                                id="CommetsBox"
                                 label="Commets"
                                 variant="outlined"
                                 multiline
                                 minRows={5}
                                 sx={{ width: '220px' }}
                             />
-                        </ListItem>
-                    </div> :
-                    <ListItem >
-                        <TextField
-                            id="standard-basic"
-                            label="Commets"
-                            variant="outlined"
-                            multiline
-                            minRows={5}
-                            sx={{ width: '220px' }}
-                        />
-                    </ListItem>}
-                <ListItem>
-                    <Button variant="contained"
-                        sx={{
-                            width: '220px',
-                            height: '50px'
-                        }}
-                    >SEND DATA</Button>
-                </ListItem>
-            </List>
+                        </ListItem>}
+                    <ListItem>
+                        <Button variant="contained"
+                            sx={{
+                                width: '220px',
+                                height: '50px'
+                            }}
+                            type="submit"
+                            disabled={((hoursNight < hoursDay) || service === 'Towing' ) ? false : true}
+                            onClick={HoursDifference}>
+                            SEND DATA</Button>
+                    </ListItem>
+                </List>
+            </form>
         </Box>
     );
 
