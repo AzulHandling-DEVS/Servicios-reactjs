@@ -132,6 +132,7 @@ export default function MenuDrawer() {
                                     InputProps={{ inputProps: { min: 0, max: 8 } }}
                                     sx={{ width: '100%' }}
                                     label="Hours night"
+                                    placeholder={0}
                                     onChange={(e) => {
                                         setHoursNight(e.target.value);
                                     }}
@@ -145,6 +146,7 @@ export default function MenuDrawer() {
                                     label="Hours morning"
                                     InputProps={{ inputProps: { min: 0, max: 8 } }}
                                     sx={{ width: '100%' }}
+                                    placeholder= {0}
                                     onChange={(e) => {
                                         setHoursday(e.target.value);
                                     }}

@@ -9,19 +9,25 @@ import MenuDrawer from '../drawer';
 import Button from '@mui/material/Button';
 
 export default function Header() {
+
+    const current = new Date();
+    const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
+
+
+
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar 
-            position="static"
-            sx={{
-                height:'10vh',
-                paddingLeft:'20px',
-                paddingRight:'20px',
+            <AppBar
+                position="static"
+                sx={{
+                    height: '8vh',
+                    paddingLeft: '20px',
+                    paddingRight: '20px',
                 }}>
                 <Stack
                     direction="row"
                     justifyContent="space-between"
-                    alignItems="baseline"
+                    alignItems="inherit"
                     spacing={2}
                     padding={1}
                     marginLeft={2}
@@ -33,7 +39,7 @@ export default function Header() {
                         alignItems="center">
 
                         <Typography
-                            variant="h6"
+                            variant="h5"
                             noWrap
                             component="div"
                             sx={{
@@ -53,7 +59,6 @@ export default function Header() {
                             className='date_picker'
                             id="date"
                             type="date"
-                            defaultValue="2017-05-24"
                             sx={{
                                 width: '17vw',
                                 borderRadius: '50px',
@@ -65,7 +70,6 @@ export default function Header() {
                             className='date_picker'
                             id="date"
                             type="date"
-                            defaultValue="2017-05-24"
                             sx={{
                                 width: '17vw',
                                 borderRadius: '50px',
@@ -79,7 +83,7 @@ export default function Header() {
                             id="date"
                             type="text"
                             placeholder="Search flight"
-                            size= 'small'
+                            size='small'
                             sx={{
                                 width: '17vw',
                                 borderRadius: '50px',
@@ -89,14 +93,15 @@ export default function Header() {
                             }}
                         />
                         <Button
-                        className='button_send'
-                        variant="contained"
-                        sx={{
-                        backgroundColor:'#06358F',
-                        borderRadius:'5px',
-                        marginLeft: '15px',
-                        }}>
-                        Send</Button>
+                            className='button_send'
+                            variant="contained"
+                            sx={{
+                                color: '#06358F',
+                                backgroundColor: '#EBC431',
+                                borderRadius: '5px',
+                                marginLeft: '15px',
+                            }}>
+                            Send</Button>
                     </div>
                 </Stack>
             </AppBar>
