@@ -11,8 +11,21 @@ import Button from '@mui/material/Button';
 export default function Header() {
 
     const current = new Date();
-    const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
+    const date = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`;
+    
+    const getDate1Value = (event)=>{
+        // show the date_1 input value to console
+        const date1Value = event.target.value;
 
+        console.log(date1Value, 'date1Value');
+    };
+
+    const getDate2Value = (event)=>{
+        // show the date_1 input value to console
+        const date2Value = event.target.value;
+
+        console.log(date2Value, 'date2Value');
+    };
 
 
     return (
@@ -23,6 +36,7 @@ export default function Header() {
                     height: '8vh',
                     paddingLeft: '20px',
                     paddingRight: '20px',
+                    backgroundColor: '#06358F',
                 }}>
                 <Stack
                     direction="row"
@@ -39,13 +53,13 @@ export default function Header() {
                         alignItems="center">
 
                         <Typography
-                            variant="h5"
                             noWrap
                             component="div"
                             sx={{
-                                display: { xs: 'none', sm: 'block' },
+                                display: { xs: 'none', sm: 'block'},
                                 marginRight: '15px',
                                 fontWeight: 'bold',
+                                fontSize: '2rem',
                             }}
                         >
                             SERVICIOS
@@ -57,8 +71,10 @@ export default function Header() {
                     <div className='div_inputs'>
                         <TextField
                             className='date_picker'
-                            id="date"
+                            id="date_1"
                             type="date"
+                            placeholder={date}
+                            onChange={getDate1Value}
                             sx={{
                                 width: '17vw',
                                 borderRadius: '50px',
@@ -68,8 +84,9 @@ export default function Header() {
                         />
                         <TextField
                             className='date_picker'
-                            id="date"
+                            id="date_2"
                             type="date"
+                            onChange={getDate2Value}
                             sx={{
                                 width: '17vw',
                                 borderRadius: '50px',

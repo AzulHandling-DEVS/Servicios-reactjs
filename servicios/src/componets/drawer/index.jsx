@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { InputLabel, Select, MenuItem, FormControl, } from '@mui/material';
+import './style.css';
 
 
 
@@ -26,13 +27,16 @@ export default function MenuDrawer() {
         setGpuService(event.target.value);
     };
 
-    function HoursDifference() {
+/*     function HoursDifference() {
         if ( hoursDay < hoursNight) {
             alert("La hora de noche no puede ser mayor que la hora de día");
         } else {
             alert("La hora de noche es menor que la hora de día");
         }
-    }
+    } */
+
+
+
 
     const [state, setState] = useState({
         top: false,
@@ -133,6 +137,8 @@ export default function MenuDrawer() {
                                     sx={{ width: '100%' }}
                                     label="Hours night"
                                     placeholder={0}
+                                    step={0.5}
+
                                     onChange={(e) => {
                                         setHoursNight(e.target.value);
                                     }}
@@ -147,6 +153,7 @@ export default function MenuDrawer() {
                                     InputProps={{ inputProps: { min: 0, max: 8 } }}
                                     sx={{ width: '100%' }}
                                     placeholder= {0}
+                                    step={0.5}
                                     onChange={(e) => {
                                         setHoursday(e.target.value);
                                     }}
@@ -180,9 +187,16 @@ export default function MenuDrawer() {
                                 width: '220px',
                                 height: '50px'
                             }}
+                            
                             type="submit"
-                            disabled={((hoursNight < hoursDay) || service === 'Towing' ) ? false : true}
-                            onClick={HoursDifference}>
+                            disabled={((hoursNight < hoursDay) 
+                            || (hoursNight > 8) 
+                            || (hoursDay > 8) 
+                            || service === 'Towing' ) 
+                            ? false 
+                            : true}
+                            // onClick={HoursDifference}
+                            >
                             SEND DATA</Button>
                     </ListItem>
                 </List>

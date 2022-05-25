@@ -12,7 +12,7 @@ import TableRow from '@mui/material/TableRow';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const columns = [
-    { id: 'id', label: 'id', width: '10px' },
+    { id: 'ID', label: 'ID', width: '10px' },
     { id: 'date', label: 'Date', width: '10px', align: 'center' },
     {
         id: 'service',
@@ -81,10 +81,10 @@ const columns = [
 
 ];
 
-const deleteRowIcon = <DeleteIcon sx={{color:'#9b0000'}} />
+const deleteRowIcon = <DeleteIcon sx={{color:'#9b0000'}}/>
 
-function createData(id, date, service, FlNoIn, FlNoOut, reg, gpunumber, hoursnight, hoursmorning, comments, deleteRow) {
-    return { id, date, service, FlNoIn, FlNoOut, reg, gpunumber, hoursnight, hoursmorning, comments, deleteRow };
+function createData(ID, date, service, FlNoIn, FlNoOut, reg, gpunumber, hoursnight, hoursmorning, comments, deleteRow) {
+    return { ID, date, service, FlNoIn, FlNoOut, reg, gpunumber, hoursnight, hoursmorning, comments, deleteRow };
 }
 
 
@@ -177,7 +177,7 @@ export default function DataTable() {
                                     key={column.id}
                                     style={{
                                         minWidth: column.minWidth,
-                                        backgroundColor: '#06358F',
+                                        backgroundColor: '#1565c0',
                                         color: '#ffffff',
                                         align: 'flex-start',
                                     }}
