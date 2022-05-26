@@ -1,29 +1,31 @@
 import * as React from 'react';
+import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import './style.css';
+import Button from '@mui/material/Button';
 import { Stack } from '@mui/material';
 import MenuDrawer from '../drawer';
-import Button from '@mui/material/Button';
+import './style.css';
+
+
+
 
 export default function Header() {
 
     const current = new Date();
     const date = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`;
-    
-    const getDate1Value = (event)=>{
-        // show the date_1 input value to console
-        const date1Value = event.target.value;
+    const [searchValue, setSearchValue] = useState('');
 
+
+    const getDate1Value = (event) => {
+        const date1Value = event.target.value;
         console.log(date1Value, 'date1Value');
     };
 
-    const getDate2Value = (event)=>{
-        // show the date_1 input value to console
+    const getDate2Value = (event) => {
         const date2Value = event.target.value;
-
         console.log(date2Value, 'date2Value');
     };
 
@@ -51,12 +53,11 @@ export default function Header() {
                         direction="row"
                         spacing={2}
                         alignItems="center">
-
                         <Typography
                             noWrap
                             component="div"
                             sx={{
-                                display: { xs: 'none', sm: 'block'},
+                                display: { xs: 'none', sm: 'block' },
                                 marginRight: '15px',
                                 fontWeight: 'bold',
                                 fontSize: '2rem',
@@ -95,9 +96,11 @@ export default function Header() {
                                 marginLeft: '1vw'
                             }}
                         />
+                        <form type="submit"
+                        className='search_flight-form'>
                         <TextField
                             className='search_flight'
-                            id="date"
+                            id="input_search"
                             type="text"
                             placeholder="Search flight"
                             size='small'
@@ -108,17 +111,24 @@ export default function Header() {
                                 paddingTop: '1vh',
                                 marginLeft: '1vw',
                             }}
+                            value={searchValue}
+                            onChange={(e) => setSearchValue(e.target.value)}
                         />
                         <Button
                             className='button_send'
                             variant="contained"
+                            type='submit'
                             sx={{
                                 color: '#06358F',
                                 backgroundColor: '#EBC431',
                                 borderRadius: '5px',
                                 marginLeft: '15px',
-                            }}>
-                            Send</Button>
+                            }}
+                            onClick={console.log("searchValue")}
+                            >
+                            Send
+                        </Button>
+                        </form>
                     </div>
                 </Stack>
             </AppBar>

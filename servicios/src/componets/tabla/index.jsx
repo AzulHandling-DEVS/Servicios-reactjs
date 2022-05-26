@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import $ from 'jquery';
+import $ from 'jquery';
 import { useState } from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -20,69 +20,67 @@ const columns = [
         id: 'service',
         label: 'Service',
         width: '10px',
-        format: (value) => value.toLocaleString('en-US'),
+        format: (value) => value.toLocaleString(),
         align: 'center',
     },
     {
         id: 'FlNoIn',
         label: 'Flight Nº In',
         width: '10px',
-        format: (value) => value.toLocaleString('en-US'),
+        format: (value) => value.toLocaleString(),
         align: 'center',
     },
     {
         id: 'FlNoOut',
         label: 'Flight Nº Out',
         width: '10px',
-        format: (value) => value.toFixed(2),
+        format: (value) => value.toLocaleString(),
         align: 'center',
     },
     {
         id: 'reg',
         label: 'REG',
         width: '10px',
-        format: (value) => value.toFixed(2),
+        format: (value) => value.toLocaleString(),
         align: 'center',
     },
     {
         id: 'gpunumber',
         label: 'GPU Number',
         width: '10px',
-        format: (value) => value.toFixed(2),
+        format: (value) => value.toLocaleString(),
         align: 'center',
     },
     {
         id: 'hoursnight',
         label: 'Hours Night',
         width: '10px',
-        format: (value) => value.toFixed(2),
+        format: (value) => value.toLocaleString(),
         align: 'center',
     },
     {
         id: 'hoursmorning',
         label: 'Hours morning',
         width: '10px',
-        format: (value) => value.toFixed(2),
+        format: (value) => value.toLocaleString(),
         align: 'center',
     },
     {
         id: 'comments',
         label: 'Comments',
         width: '10px',
-        format: (value) => value.toFixed(2),
+        format: (value) => value.toLocaleString(),
         align: 'center',
     },
     {
         id: 'deleteRow',
         label: 'Delete',
         width: '5px',
-        format: (value) => value.toFixed(2),
         align: 'center',
 
     },
 
 ];
-
 
 
 function createData(ID, date, service, FlNoIn, FlNoOut, reg, gpunumber, hoursnight, hoursmorning, comments, deleteRow) {
@@ -133,7 +131,19 @@ const rows = [
     createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
     createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
     createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
-
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
+    createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
 ];
 
 export default function DataTable() {
@@ -151,7 +161,6 @@ export default function DataTable() {
         setPage(0);
     };
 
-
     /* 
         const fetchServices = async () => {
             try {
@@ -159,9 +168,9 @@ export default function DataTable() {
                     url: "https://procesos/servicios-list.php",
                     type: 'GET',
                     data: {
-                        //  Fecha, // hacer por contexto con el date picker del header
-                        //  Fecha2, // hacer por contexto con el date picker del header
-                        //  APT, // ver por donde viene
+                          Fecha, // hacer por contexto con el date picker del header
+                          Fecha2, // hacer por contexto con el date picker del header
+                          APT, // ver por donde viene
                     }
                 })
                     .then(response => {
@@ -175,7 +184,6 @@ export default function DataTable() {
                 console.error(err.message)
             }
         }; */
-
 
     return (
         <Paper sx={{ width: '95vw', overflow: 'hidden', marginLeft: '2.5vw', marginTop: '10px' }} elevation={6} >

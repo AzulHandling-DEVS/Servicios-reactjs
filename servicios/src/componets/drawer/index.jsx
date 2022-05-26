@@ -35,7 +35,6 @@ export default function MenuDrawer() {
         }
     } */
 
-
     hoursNight > 8 ? alert("La hora de noche no puede ser mayor que 8") : console.log("todo ok")
 
     const [state, setState] = useState({
@@ -79,37 +78,32 @@ export default function MenuDrawer() {
                                 id="SelectService"
                                 value={service}
                                 label="Service"
-                                onChange={handleChange}
-                            >
+                                onChange={handleChange}>
                                 <MenuItem value={"Towing"}>Towing</MenuItem>
                                 <MenuItem value={"GPU"}>GPU</MenuItem>
                             </Select>
                         </FormControl>
                     </ListItem>
-
                     <ListItem >
                         <TextField
                             id="FlNoIn"
                             label="Flight number in"
                             variant="outlined" />
                     </ListItem>
-
                     <ListItem >
                         <TextField
                             id="FlNoOut"
                             label="Flight number out"
                             variant="outlined" />
                     </ListItem>
-
                     <ListItem >
                         <TextField
                             id="REGNumber"
                             label="REG"
                             variant="outlined" />
                     </ListItem>
-
-                    {service === 'GPU' 
-                    ? <div>
+                    {service === 'GPU'
+                        ? <div>
                             <ListItem>
                                 <FormControl sx={{ width: '100%' }}>
                                     <InputLabel id="demo-simple-select-label">GPU type</InputLabel>
@@ -118,8 +112,7 @@ export default function MenuDrawer() {
                                         id="GPUSelect"
                                         value={gpuService}
                                         label="Service"
-                                        onChange={handleChangeGpu}
-                                    >
+                                        onChange={handleChangeGpu}>
                                         <MenuItem value={"GPU-046"}>GPU-046</MenuItem>
                                         <MenuItem value={"GPU-047"}>GPU-047</MenuItem>
                                         <MenuItem value={"GPU-047"}>GPU-048</MenuItem>
@@ -138,13 +131,10 @@ export default function MenuDrawer() {
                                     label="Hours night"
                                     placeholder={0}
                                     step={0.5}
-
                                     onChange={(e) => {
                                         setHoursNight(e.target.value);
-                                        }
-                                    }
-                                    variant="outlined"
-                                />
+                                    }}
+                                    variant="outlined" />
                             </ListItem>
                             <ListItem >
                                 <TextField
@@ -153,14 +143,13 @@ export default function MenuDrawer() {
                                     label="Hours morning"
                                     InputProps={{ inputProps: { min: 0, max: 8 } }}
                                     sx={{ width: '100%' }}
-                                    placeholder= {0}
+                                    placeholder={0}
                                     step={0.5}
                                     onChange={(e) => {
                                         setHoursday(e.target.value);
                                     }}
                                     variant="outlined" />
                             </ListItem>
-
                             <ListItem >
                                 <TextField
                                     id="CommetsBox"
@@ -171,7 +160,7 @@ export default function MenuDrawer() {
                                     sx={{ width: '220px' }}
                                 />
                             </ListItem>
-                        </div> 
+                        </div>
                         : <ListItem >
                             <TextField
                                 id="CommetsBox"
@@ -188,16 +177,15 @@ export default function MenuDrawer() {
                                 width: '220px',
                                 height: '50px'
                             }}
-                            
                             type="submit"
-                            disabled={((hoursNight < hoursDay) 
-                            || (hoursNight > 8) 
-                            || (hoursDay > 8) 
-                            || service === 'Towing' ) 
-                            ? false 
-                            : true}
-                            // onClick={HoursDifference}
-                            >
+                            disabled={((hoursNight < hoursDay)
+                                || (hoursNight > 8)
+                                || (hoursDay > 8)
+                                || service === 'Towing')
+                                ? false
+                                : true}
+                        // onClick={HoursDifference}
+                        >
                             SEND DATA</Button>
                     </ListItem>
                 </List>

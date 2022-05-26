@@ -19,3 +19,9 @@ border-radius: 5px;
     flex-direction: row;
     align-items: baseline;
 }
+
+.search_flight-form{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
