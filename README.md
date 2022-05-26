@@ -1,2 +1,2 @@
 # Servicios-reactjs
-Pop up de sercicios en la página de operaciones rehecho en React
+Pop up de servicios en la página de operaciones rehecho en React
