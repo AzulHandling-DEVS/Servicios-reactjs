@@ -27,7 +27,7 @@ export default function MenuDrawer() {
         setGpuService(event.target.value);
     };
 
-/*     function HoursDifference() {
+    /* function HoursDifference() {
         if ( hoursDay < hoursNight) {
             alert("La hora de noche no puede ser mayor que la hora de día");
         } else {
@@ -36,7 +36,7 @@ export default function MenuDrawer() {
     } */
 
 
-
+    hoursNight > 8 ? alert("La hora de noche no puede ser mayor que 8") : console.log("todo ok")
 
     const [state, setState] = useState({
         top: false,
@@ -141,7 +141,8 @@ export default function MenuDrawer() {
 
                                     onChange={(e) => {
                                         setHoursNight(e.target.value);
-                                    }}
+                                        }
+                                    }
                                     variant="outlined"
                                 />
                             </ListItem>

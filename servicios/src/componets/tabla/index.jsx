@@ -1,5 +1,5 @@
 import * as React from 'react';
-import $ from 'jquery';
+// import $ from 'jquery';
 import { useState } from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -10,6 +10,8 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+
 
 const columns = [
     { id: 'ID', label: 'ID', width: '10px' },
@@ -76,17 +78,26 @@ const columns = [
         width: '5px',
         format: (value) => value.toFixed(2),
         align: 'center',
-        
+
     },
 
 ];
 
-const deleteRowIcon = <DeleteIcon sx={{color:'#9b0000'}}/>
+
 
 function createData(ID, date, service, FlNoIn, FlNoOut, reg, gpunumber, hoursnight, hoursmorning, comments, deleteRow) {
     return { ID, date, service, FlNoIn, FlNoOut, reg, gpunumber, hoursnight, hoursmorning, comments, deleteRow };
 }
 
+
+const deleteRowIcon =
+    <IconButton
+        onClick={() => {
+            console.log('clicked');
+        }}
+    >
+        <DeleteIcon sx={{ color: '#9b0000' }} />
+    </IconButton>
 
 
 const rows = [
@@ -122,14 +133,14 @@ const rows = [
     createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
     createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
     createData('d1234', '23/07/22', 'Buses', '9034', '9045', 'EINE', 'GPU-46', 0.8, 0.2, 'First Wave', deleteRowIcon),
-    
+
 ];
 
 export default function DataTable() {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(50);
-/*     const [services, getNewServices] = useState({});
-    let counter = 0; */
+    /*     const [services, getNewServices] = useState({});
+        let counter = 0; */
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -141,29 +152,29 @@ export default function DataTable() {
     };
 
 
-/* 
-    const fetchServices = async () => {
-        try {
-            const sentBoardData = await $.ajax({
-                url: "https://procesos/servicios-list.php",
-                type: 'GET',
-                data: {
-                    //  Fecha, // hacer por contexto con el date picker del header
-                    //  Fecha2, // hacer por contexto con el date picker del header
-                    //  APT, // ver por donde viene
-                }
-            })
-                .then(response => {
-                    return response.json()
+    /* 
+        const fetchServices = async () => {
+            try {
+                const sentBoardData = await $.ajax({
+                    url: "https://procesos/servicios-list.php",
+                    type: 'GET',
+                    data: {
+                        //  Fecha, // hacer por contexto con el date picker del header
+                        //  Fecha2, // hacer por contexto con el date picker del header
+                        //  APT, // ver por donde viene
+                    }
                 })
-                .then(data => {
-                    getNewServices({ ...data })
-                    console.log(services)
-                })
-        } catch (err) {
-            console.error(err.message)
-        }
-    }; */
+                    .then(response => {
+                        return response.json()
+                    })
+                    .then(data => {
+                        getNewServices({ ...data })
+                        console.log(services)
+                    })
+            } catch (err) {
+                console.error(err.message)
+            }
+        }; */
 
 
     return (
