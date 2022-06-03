@@ -6,6 +6,8 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Stack } from '@mui/material';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import MenuDrawer from '../drawer';
 import './style.css';
 
@@ -14,21 +16,11 @@ import './style.css';
 
 export default function Header() {
 
-    const current = new Date();
-    const date = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`;
+    // const current = new Date();
+   // const date = `${current.getFullYear()}-${current.getMonth() + 1}-${current.getDate()}`;
     const [searchValue, setSearchValue] = useState('');
-
-
-    const getDate1Value = (event) => {
-        const date1Value = event.target.value;
-        console.log(date1Value, 'date1Value');
-    };
-
-    const getDate2Value = (event) => {
-        const date2Value = event.target.value;
-        console.log(date2Value, 'date2Value');
-    };
-
+    const [date1Value, setDate1Value] = useState(new Date().toISOString().split('T')[0]);
+    const [date2Value, setDate2Value] = useState(new Date().toISOString().split('T')[0]);
 
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -70,24 +62,32 @@ export default function Header() {
                         </Typography>
                     </Stack>
                     <div className='div_inputs'>
+                    <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <TextField
                             className='date_picker'
                             id="date_1"
                             type="date"
-                            placeholder={date}
-                            onChange={getDate1Value}
-                            sx={{
-                                width: '17vw',
-                                borderRadius: '50px',
-                                height: '5vh',
-                                paddingTop: '1vh'
+                            value={date1Value}
+                            minDate={new Date('2020-01-01')}
+                            onChange={(newValue) => {
+                                setDate1Value(newValue);
+                                console.log(newValue, "date 1");}}
+                                sx = {{
+                                    width: '17vw',
+                                        borderRadius: '50px',
+                        height: '5vh',
+                        paddingTop: '1vh'
                             }}
                         />
                         <TextField
                             className='date_picker'
                             id="date_2"
                             type="date"
-                            onChange={getDate2Value}
+                            value={date2Value}
+                            minDate={new Date('2020-01-01')}
+                            onChange={(newValue2) => {
+                                setDate2Value(newValue2);
+                                console.log(newValue2, "date 2");}}
                             sx={{
                                 width: '17vw',
                                 borderRadius: '50px',
@@ -96,38 +96,41 @@ export default function Header() {
                                 marginLeft: '1vw'
                             }}
                         />
+                        </LocalizationProvider>
                         <form type="submit"
-                        className='search_flight-form'>
-                        <TextField
-                            className='search_flight'
-                            id="input_search"
-                            type="text"
-                            placeholder="Search flight"
-                            size='small'
-                            sx={{
-                                width: '17vw',
-                                borderRadius: '50px',
-                                height: '5vh',
-                                paddingTop: '1vh',
-                                marginLeft: '1vw',
-                            }}
-                            value={searchValue}
-                            onChange={(e) => setSearchValue(e.target.value)}
-                        />
-                        <Button
-                            className='button_send'
-                            variant="contained"
-                            type='submit'
-                            sx={{
-                                color: '#06358F',
-                                backgroundColor: '#EBC431',
-                                borderRadius: '5px',
-                                marginLeft: '15px',
-                            }}
-                            onClick={console.log("searchValue")}
+                            className='search_flight-form'>
+                            <TextField
+                                className='search_flight'
+                                id="input_search"
+                                type="text"
+                                placeholder="Search flight"
+                                size='small'
+                                sx={{
+                                    width: '17vw',
+                                    borderRadius: '50px',
+                                    height: '5vh',
+                                    paddingTop: '1vh',
+                                    marginLeft: '1vw',
+                                }}
+                                onChange={(e) => setSearchValue(e.target.value)}
+                            />
+                            <Button
+                                className='button_send'
+                                variant="contained"
+                                type='submit'
+                                sx={{
+                                    color: '#06358F',
+                                    backgroundColor: '#EBC431',
+                                    borderRadius: '5px',
+                                    marginLeft: '15px',
+                                }}
+                                onClick={(e) => {
+                                    console.log(searchValue, 'searchValue');
+                                    e.preventDefault();
+                                }}
                             >
-                            Send
-                        </Button>
+                                SEND
+                            </Button>
                         </form>
                     </div>
                 </Stack>
